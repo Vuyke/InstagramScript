@@ -69,7 +69,7 @@ def readTownsInfo(path, countries):
             
                     
 countries = {}            
-readTownsInfo("C:/Users/vujov/OneDrive/Desktop/Klubovi.txt", countries)
+readTownsInfo("./Klubovi.txt", countries)
 #print(countries.values())
 print(countries["SERBIA"].towns["NOVI SAD"])
 #print(countries.values())
