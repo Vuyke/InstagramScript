@@ -1,5 +1,5 @@
 class Club:
-    def __init__(self, name, lastPost):
+    def __init__(self, name: str, lastPost: int):
         self.name = name
         self.lastPost = lastPost
     def __str__(self):
@@ -8,10 +8,10 @@ class Club:
         return self.__str__()
 
 class Town:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
         self.clubs = []
-    def add(self, club):
+    def add(self, club: str):
         self.clubs.append(club)
     def __str__(self):
         s = f"{self.name}\n"
@@ -22,7 +22,7 @@ class Town:
         return self.__str__()
 
 class Country:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
         self.towns = {}
     def __str__(self):
@@ -33,14 +33,14 @@ class Country:
     def __repr__(self):
         return self.__str__()
 
-def addClub(countries, country, town, club, lastPost):
+def addClub(countries: dict[str, Country], country: str, town: str, club: str, lastPost: int):
     if country not in countries:
         countries[country] = Country(country)
     if town not in countries[country].towns:
         countries[country].towns[town] = Town(town)
     countries[country].towns[town].add(Club(club, lastPost))
     
-def readSingleTown(country, town, lines, i):
+def readSingleTown(country: str, town: str, lines: list[str], i: int):
     i += 1
     while i < len(lines) and lines[i] != "\n":
         curLine = lines[i].strip("\n")
@@ -52,7 +52,7 @@ def readSingleTown(country, town, lines, i):
         i += 1
     return i
 
-def readTownsInfo(path, countries):
+def readTownsInfo(path: str, countries: dict[str, Country]):
     with open(path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
         s = ""
