@@ -5,12 +5,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver import Edge
-import os
 import time
-import sys
-from getpass import getpass
 
 SESSION_FILE = "session.json"
+
+def getMessage():# here we implement Aleksa's message
+    return "De si Sale!!!"
 
 def loginConf() -> Edge:
     edge_options = Options()
@@ -36,7 +36,7 @@ def sendToClubs(clubs):
         time.sleep(10)
         msg_box = driver.find_element(By.XPATH, "//div[@role='textbox']")
         msg_box.click()
-        msg_box.send_keys("De si salee!!!")
+        msg_box.send_keys(getMessage())
         msg_box.send_keys("\n")
         time.sleep(60)
         
