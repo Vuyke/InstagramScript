@@ -1,3 +1,5 @@
+from messagesScript import sendNotifications
+
 class Club:
     def __init__(self, name: str, lastPost: int):
         self.name = name
@@ -69,7 +71,6 @@ def readTownsInfo(path: str, countries: dict[str, Country]):
             
                     
 countries = {}            
-readTownsInfo("./Klubovi.txt", countries)
-#print(countries.values())
+readTownsInfo("./test.txt", countries)
 print(countries["SERBIA"].towns["NOVI SAD"])
-#print(countries.values())
+sendNotifications(countries, "Novi Sad", 10)

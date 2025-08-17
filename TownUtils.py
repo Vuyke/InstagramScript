@@ -7,8 +7,7 @@ def getDistance(town1: str, town2: str) -> float:
     location1 = geolocator.geocode(town1)
     location2 = geolocator.geocode(town2)
     if location1 and location2:
-        return geodesic((location1.latitude, location1.longitude), (location2.latitude, location2.longitude))
+        x = geodesic((location1.latitude, location1.longitude), (location2.latitude, location2.longitude))
+        print(x)
+        return x
     return None
-
-  
-print(getDistance("Novi Sad", "Niš"))
